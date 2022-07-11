@@ -1,0 +1,29 @@
+{
+  "name": "@thaldea/logger",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./example.mjs",
+    "publish:patch": "npm version patch && npm publish && git push --tags",
+    "publish:minor": "npm version minor && npm publish && git push --tags",
+    "publish:major": "npm version major && npm publish && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thaldea/logger.git"
+  },
+  "keywords": [
+    "logger",
+    "log",
+    "pretty log",
+    "simple log",
+    "nodejs log"
+  ],
+  "author": "Thaldea Web",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
+}
