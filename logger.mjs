@@ -22,7 +22,7 @@ class Logger {
     }
 
     this.TYPES_STR = {
-      log: '  LOG ',
+      log: '  LOG  ',
       info: '? INFO ',
       debug: '. DEBUG',
       error: '! ERROR',
@@ -55,8 +55,15 @@ class Logger {
     let tag = firstNonLoggerLine[0].split('.')[0]
     let func = firstNonLoggerLine[0].split('.')[1]
     let filename = firstNonLoggerLine[1]
+    // Override if it's at root
+    if(filename === undefined) {
+      console.log(firstNonLoggerLine)
+      filename = firstNonLoggerLine[0]
+      tag = "[Root]"
+      func = ""
+    }
     // Override if it's a constructor
-    if (tag === 'new') {
+    else if (tag === 'new') {
       tag = firstNonLoggerLine[1]
       func = 'constructor'
       filename = firstNonLoggerLine[2]
@@ -72,7 +79,7 @@ class Logger {
     console.log(
       chalk[this.COLORS[type]](this.TYPES_STR[type]),
       chalk.gray(`${ctx.date}`),
-      chalk.blue(`${ctx.tag}>`) + chalk.magenta(`${ctx.func}>`),
+      chalk.blue(`${ctx.tag}>`) + chalk.magenta(`${ctx.func}`),
       ...msg,
       chalk.gray(ctx.filename)
     )

@@ -3,6 +3,8 @@ import {Logger as LoggerInstance} from './logger.mjs';
 
 const Logger2 = new LoggerInstance("mylogs.log");
 
+Logger.debug("Test outside everything")
+
 class Main {
 
   run() {
