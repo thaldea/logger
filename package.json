@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./example.mjs",
-    "publish:patch": "npm version patch && npm push --tags",
-    "publish:minor": "npm version minor && npm push --tags",
-    "publish:major": "npm version major && npm push --tags"
+    "publish:patch": "npm version patch && npm publish && git push --tags",
+    "publish:minor": "npm version minor && npm publish && git push --tags",
+    "publish:major": "npm version major && npm publish && git push --tags"
   },
   "repository": {
     "type": "git",
