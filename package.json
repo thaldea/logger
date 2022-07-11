@@ -1,6 +1,6 @@
 {
   "name": "@thaldea/logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,13 @@
     "type": "git",
     "url": "git@github.com-thaldea.web:thaldea-web/logger.git"
   },
-  "keywords": ["logger", "log", "pretty log", "simple log", "nodejs log"],
+  "keywords": [
+    "logger",
+    "log",
+    "pretty log",
+    "simple log",
+    "nodejs log"
+  ],
   "author": "Yves Lange",
   "license": "ISC",
   "dependencies": {
