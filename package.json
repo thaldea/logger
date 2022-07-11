@@ -11,7 +11,8 @@
     "type": "git",
     "url": "git@github.com-thaldea.web:thaldea-web/logger.git"
   },
-  "author": "",
+  "keywords": ["logger", "log", "pretty log", "simple log", "nodejs log"],
+  "author": "Yves Lange",
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.0.1"
