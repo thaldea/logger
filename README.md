@@ -14,6 +14,8 @@ npm install @thaldea/logger
 ```javascript
 import Logger from "./logger.mjs"
 
+Logger.debug("Debug log outside a function or a class")
+
 class Main {
 
   run() {
