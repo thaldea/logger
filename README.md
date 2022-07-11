@@ -12,7 +12,7 @@ npm install @thaldea/logger
 ## Simple log example
 
 ```javascript
-import Logger from "./logger.mjs"
+import Logger from "@thaldea/logger/index.mjs"
 
 Logger.debug("Debug log outside a function or a class")
 
@@ -35,7 +35,7 @@ app.run()
 ## Log and file
 
 ```javascript
-import {Logger as LoggerInstance} from './logger.mjs';
+import {Logger as LoggerInstance} from '@thaldea/logger/index.mjs';
 
 const Logger = new LoggerInstance("mylogs.log");
 
