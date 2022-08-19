@@ -1,5 +1,5 @@
-import Logger from "./logger.mjs"
-import {Logger as LoggerInstance} from './logger.mjs';
+import Logger from "./index.mjs"
+import {Logger as LoggerInstance} from './index.mjs';
 
 const Logger2 = new LoggerInstance("mylogs.log");
 
@@ -12,6 +12,7 @@ class Main {
     Logger.debug("A debug message")
     Logger.silly("A silly debug message")
     Logger.info("An info message")
+    Logger.warn("A warning message")
     Logger.error("An error message")
     Logger.fatal("A fatal message")
 

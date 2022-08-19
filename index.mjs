@@ -17,17 +17,19 @@ class Logger {
       error: 'red',
       fatal: 'magenta',
       info: 'blue',
-      silly: 'yellow',
-      log: 'white'
+      log: 'white',
+      silly: 'cyan',
+      warn: 'yellow'
     }
 
     this.TYPES_STR = {
-      log: '  LOG  ',
-      info: '? INFO ',
       debug: '. DEBUG',
       error: '! ERROR',
       fatal: 'X FATAL',
-      silly: '~ SILLY'
+      info: '? INFO ',
+      log: '  LOG  ',
+      silly: '~ SILLY',
+      warn: '~ WARN ',
     }
     this.OUTPUT_FILENAME = outputFilename
   }
@@ -98,6 +100,10 @@ class Logger {
 
   info (...msg) {
     this._print('info', ...msg)
+  }
+  
+  warn (...msg) {
+    this._print('warn', ...msg)
   }
 
   error (...msg) {
