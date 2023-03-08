@@ -7,7 +7,7 @@ import fs from 'fs'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-let ID = 1
+let ID = 0
 
 class Logger {
   constructor (outputFilename) {
