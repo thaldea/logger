@@ -83,7 +83,8 @@ class Logger {
       chalk.gray(ctx.filename)
     )
     if (this.OUTPUT_FILENAME) {
-      fs.appendFileSync(this.OUTPUT_FILENAME, JSON.stringify(ctx) + '\n')
+      const data = Object.assign(ctx, {data: msg});
+      fs.appendFileSync(this.OUTPUT_FILENAME, JSON.stringify(data) + '\n')
     }
   }
 

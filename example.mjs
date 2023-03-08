@@ -1,5 +1,5 @@
-import Logger from "./logger.mjs"
-import {Logger as LoggerInstance} from './logger.mjs';
+import Logger from "./index.mjs"
+import {Logger as LoggerInstance} from './index.mjs';
 
 const Logger2 = new LoggerInstance("mylogs.log");
 
@@ -16,7 +16,7 @@ class Main {
     Logger.fatal("A fatal message")
 
 
-    Logger2.debug("Logger2 message instance")
+    Logger2.debug("Logger2 instance, writing into mylogs.log files")
   }
 }
 
