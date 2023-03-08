@@ -17,7 +17,7 @@ class Logger {
       error: 'red',
       fatal: 'magenta',
       info: 'blue',
-      silly: 'yellow',
+      warn: 'yellow',
       log: 'white'
     }
 
@@ -27,7 +27,7 @@ class Logger {
       debug: '. DEBUG',
       error: '! ERROR',
       fatal: 'X FATAL',
-      silly: '~ SILLY'
+      warn: '~ WARN '
     }
     this.OUTPUT_FILENAME = outputFilename
   }
@@ -77,9 +77,9 @@ class Logger {
     const ctx = this._getContext()
     console.log(
       chalk[this.COLORS[type]](this.TYPES_STR[type]),
-      chalk.gray(`${ctx.date}`),
       chalk.blue(`${ctx.tag}>`) + chalk.magenta(`${ctx.func}`),
       ...msg,
+      chalk.gray(`${ctx.date}`),
       chalk.gray(ctx.filename)
     )
     if (this.OUTPUT_FILENAME) {
@@ -108,8 +108,8 @@ class Logger {
     this._print('fatal', ...msg)
   }
 
-  silly (...msg) {
-    this._print('silly', ...msg)
+  warn (...msg) {
+    this._print('warn', ...msg)
   }
 }
 

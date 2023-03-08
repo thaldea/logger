@@ -10,7 +10,7 @@ class Main {
   run() {
     Logger.log("A simple log message")
     Logger.debug("A debug message")
-    Logger.silly("A silly debug message")
+    Logger.warn("A silly debug message")
     Logger.info("An info message")
     Logger.error("An error message")
     Logger.fatal("A fatal message")
