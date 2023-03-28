@@ -72,6 +72,7 @@ class Logger {
 
   _print (type = 'debug', ...msg) {
     const ctx = this._getContext()
+    ctx.level = type
     console.log(
       chalk[this.COLORS[type]](this.TYPES_STR[type]),
       chalk.blue(`${ctx.tag}>`) + chalk.magenta(`${ctx.func}`),
