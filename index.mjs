@@ -10,7 +10,7 @@ let ID = 0
 class Logger {
   constructor (outputFilename, options={}) {
     this.options = Object.assign({
-      displayDate: false,
+      displayDate: true,
       dateformat: "yyyy-mm-dd HH:MM:ss"
     }, options)
     this.ID = ID++
