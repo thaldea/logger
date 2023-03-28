@@ -1,5 +1,6 @@
 import chalk from 'chalk'
 import fs from 'fs'
+import dateFormat from 'dateformat';
 
 // Get current direname
 const __dirname = process.cwd()
@@ -7,7 +8,11 @@ const __dirname = process.cwd()
 let ID = 0
 
 class Logger {
-  constructor (outputFilename) {
+  constructor (outputFilename, options={}) {
+    this.options = Object.assign({
+      displayDate: false,
+      dateformat: "yyyy-mm-dd HH:MM:ss"
+    }, options)
     this.ID = ID++
     this.COLORS = {
       debug: 'gray',
@@ -19,12 +24,12 @@ class Logger {
     }
 
     this.TYPES_STR = {
-      log: '  LOG  ',
-      info: '? INFO ',
-      debug: '. DEBUG',
-      error: '! ERROR',
-      fatal: 'X FATAL',
-      warn: '~ WARN '
+      log: 'LOG  ',
+      info: 'INFO ',
+      debug: 'DEBUG',
+      error: 'ERROR',
+      fatal: 'FATAL',
+      warn: 'WARN '
     }
     this.OUTPUT_FILENAME = outputFilename
   }
@@ -44,6 +49,8 @@ class Logger {
         firstNonLoggerLine = line
           .replace(`file://${__dirname}/`, '')
           .replace('    at ', '')
+          .replace('(', '')
+          .replace(')', '')
           .split(' ')
         break
       }
@@ -55,7 +62,7 @@ class Logger {
     // Override if it's at root
     if(filename === undefined) {
       filename = firstNonLoggerLine[0]
-      tag = "[Root]"
+      tag = "Root"
       func = ""
     }
     // Override if it's a constructor
@@ -72,12 +79,14 @@ class Logger {
 
   _print (type = 'debug', ...msg) {
     const ctx = this._getContext()
+    const dateFormatted = dateFormat(ctx.date, this.options.dateformat);
     ctx.level = type
     console.log(
+      this.options.displayDate ? chalk.gray(`${dateFormatted}`): "",
       chalk[this.COLORS[type]](this.TYPES_STR[type]),
+      "|",
       chalk.blue(`${ctx.tag}>`) + chalk.magenta(`${ctx.func}`),
       ...msg,
-      chalk.gray(`${ctx.date}`),
       chalk.gray(ctx.filename)
     )
     if (this.OUTPUT_FILENAME) {
